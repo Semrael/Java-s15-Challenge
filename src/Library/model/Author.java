@@ -3,12 +3,12 @@ package Library.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Author {
+public class Author extends Person{
     private String name;
     private List<Book> books;
 
     public Author(String name){
-        this.name=name;
+        super(name);
         this.books=new ArrayList<>();
     }
 
@@ -24,8 +24,9 @@ public class Author {
         }
     }
 
-    public void whoYouAre(){
-        System.out.println("Who am I............");
+    @Override
+    public void whoYouAre() {
+        super.whoYouAre();
         show_book();
     }
 }
