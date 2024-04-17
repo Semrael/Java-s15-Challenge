@@ -2,10 +2,10 @@ package Library.model;
 
 public abstract class Publication {
     private String title;
-    private String author;
+    private Author author;
     private String pubDate;
 
-    public Publication(String title, String author, String pubDate) {
+    public Publication(String title, Author author, String pubDate) {
         this.title = title;
         this.author = author;
         this.pubDate = pubDate;
@@ -15,7 +15,7 @@ public abstract class Publication {
         return title;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
@@ -28,5 +28,14 @@ public abstract class Publication {
         System.out.println("Title"+getTitle());
         System.out.println("Author"+getAuthor());
         System.out.println("Publication Date:"+getPubDate());
+    }
+
+    @Override
+    public String toString() {
+        return "Publication{" +
+                "title='" + title + '\'' +
+                ", author='" + author.getName() + '\'' +
+                ", pubDate='" + pubDate + '\'' +
+                '}';
     }
 }

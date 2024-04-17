@@ -28,7 +28,7 @@ public class Librarian {
         List<Book> searchResult = new ArrayList<>();
 
         for (Book book : books) {
-            if (book.getTitle().contains(keyword) || book.getAuthor().contains(keyword)) {
+            if (book.getTitle().contains(keyword) || book.getAuthor().getName().contains(keyword)) {
                 searchResult.add(book);
             }
         }
@@ -65,7 +65,7 @@ public class Librarian {
 
     public double calculateFine(MemberRecord member) {
         int noBookIssued = member.getNoBooksIssued();
-        return 0.9 * noBookIssued;
+        return 0.1 * noBookIssued;
     }
 
     public void createBill(MemberRecord member, double fine) {
@@ -77,7 +77,7 @@ public class Librarian {
             if (reader.getBooks().contains(book)) {
                 book.update_status(true);
                 reader.return_book(book);
-                System.out.println(book.getTitle() + " kitabı " + reader.getName() + " tarafından başarıyla iade edildi.");
+                System.out.println(book.getTitle() + " kitabı " + reader.getName() + " tarafından başarıyla iade edildi");
 
 
 

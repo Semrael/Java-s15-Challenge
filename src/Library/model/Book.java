@@ -11,7 +11,7 @@ public class Book extends Publication {
     private String dateOfPurchase;
     private String owner;
 
-    public Book(long bookID,String title, String author, String pubDate,double price,boolean status,String edition,String dateOfPurchase) {
+    public Book(long bookID,String title, Author author, String pubDate,double price,boolean status,String edition,String dateOfPurchase) {
         super(title, author, pubDate);
         this.bookID=bookID;
         this.price=price;
@@ -78,7 +78,7 @@ public class Book extends Publication {
 
     @Override
     public String toString() {
-        return "Book{" +
+        return super.toString()+"Book{" +
                 "bookID=" + bookID +
                 ", price=" + price +
                 ", status=" + status +

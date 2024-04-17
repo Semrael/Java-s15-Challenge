@@ -1,7 +1,7 @@
 package Library.model;
 
 public class Magazine extends Publication {
-    public Magazine(String title, String author, String pubDate) {
+    public Magazine(String title,Author author, String pubDate) {
         super(title, author, pubDate);
     }
 
