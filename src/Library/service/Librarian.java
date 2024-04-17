@@ -2,7 +2,7 @@ package Library.service;
 
 import Library.model.Book;
 import Library.model.Reader;
-import Library.service.MemberRecord;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,13 +28,13 @@ public class Librarian {
         List<Book> searchResult = new ArrayList<>();
 
         for (Book book : books) {
-            if (book.get_title().contains(keyword) || book.get_author().contains(keyword)) {
+            if (book.getTitle().contains(keyword) || book.getAuthor().contains(keyword)) {
                 searchResult.add(book);
             }
         }
         if (!searchResult.isEmpty()) {
             for (Book book : searchResult) {
-                System.out.println(book.get_title() + ": " + book.get_author());
+                System.out.println(book.getTitle() + ": " + book.getAuthor());
             }
         } else {
             System.out.println("Aranan kelime ile eşleşen bir kitap bulunamadı. Farklı kelimeler ile aramayı deneyiniz.");
@@ -51,7 +51,7 @@ public class Librarian {
                 if (reader.getBooks().size() < 5) {
                     book.update_status(false);
                     reader.borrow_book(book);
-                    System.out.println(book.get_title() + " Kitabı " + reader.getName() + "'a ödünç verildi.");
+                    System.out.println(book.getTitle() + " Kitabı " + reader.getName() + "'a ödünç verildi.");
                 } else {
                     System.out.println(reader.getName() + ": Kitap alma limitini aştı.");
                 }
@@ -77,7 +77,7 @@ public class Librarian {
             if (reader.getBooks().contains(book)) {
                 book.update_status(true);
                 reader.return_book(book);
-                System.out.println(book.get_title() + " kitabı " + reader.getName() + " tarafından başarıyla iade edildi.");
+                System.out.println(book.getTitle() + " kitabı " + reader.getName() + " tarafından başarıyla iade edildi.");
 
 
 

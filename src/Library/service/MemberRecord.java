@@ -4,15 +4,15 @@ import java.util.Date;
 
 public class MemberRecord {
     private long memberID;
-    private String type;
+    private MemberType type;
     private String dateOfMemberShip;
     private int noBooksIssued;
-    private int maxBookLimit=5;
+    private final int maxBookLimit=5;
     private String name;
     private String address;
     private String phone;
 
-    public MemberRecord(long memberID, String type, String dateOfMemberShip, String name, String address, String phone) {
+    public MemberRecord(long memberID, MemberType type, String dateOfMemberShip, String name, String address, String phone) {
         this.memberID = memberID;
         this.type = type;
         this.dateOfMemberShip = dateOfMemberShip;
@@ -25,7 +25,7 @@ public class MemberRecord {
         return memberID;
     }
 
-    public String getType() {
+    public MemberType getType() {
         return type;
     }
 

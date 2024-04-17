@@ -3,7 +3,7 @@ package Library.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Author extends Person{
+public class Author extends Person {
     private String name;
     private List<Book> books;
 
@@ -14,13 +14,13 @@ public class Author extends Person{
 
     public void new_book(Book book){
         books.add(book);
-        System.out.println("'"+book.get_title()+"'"+" kitabınız eklendi.");
+        System.out.println("'"+book.getTitle()+"'"+" kitabınız eklendi.");
     }
 
     public void show_book(){
         System.out.println(this.name+ "'ın yazdığı kitaplar.");
         for(Book book:books){
-            System.out.println(book.get_title());
+            System.out.println(book.getTitle());
         }
     }
 

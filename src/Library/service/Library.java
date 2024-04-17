@@ -1,4 +1,7 @@
-package Library.model;
+package Library.service;
+
+import Library.model.Book;
+import Library.model.Reader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +31,7 @@ public class Library {
 
     public void lendBook(Book book, Reader reader) {
         if(!books.contains(book)){
-            System.out.println(book.get_title()+" kitabı kütüphanede yok.");
+            System.out.println(book.getTitle()+" kitabı kütüphanede yok.");
             return;
         }
         reader.borrow_book(book);
@@ -37,7 +40,7 @@ public class Library {
 
     public void takeBackBook(Book book,Reader reader){
         if(!reader.getBooks().contains(book)){
-            System.out.println(book.get_title()+"bu kitabı ödünç almadınız.");
+            System.out.println(book.getTitle()+"bu kitabı ödünç almadınız.");
         }
         reader.return_book(book);
     }

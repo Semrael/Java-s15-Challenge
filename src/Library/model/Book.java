@@ -3,45 +3,57 @@ package Library.model;
 import java.util.Date;
 import java.util.Objects;
 
-public class Book {
+public class Book extends Publication {
     private long bookID;
-    private String author;
-    private String name;
     private double price;
     private boolean status;
     private String edition;
     private String dateOfPurchase;
+    private String owner;
 
-    public Book(long bookID, String author, String name, double price, boolean status, String edition, String dateOfPurchase) {
-        this.bookID = bookID;
-        this.author = author;
-        this.name = name;
-        this.price = price;
-        this.status = status;
-        this.edition = edition;
-        this.dateOfPurchase = dateOfPurchase;
+    public Book(long bookID,String title, String author, String pubDate,double price,boolean status,String edition,String dateOfPurchase) {
+        super(title, author, pubDate);
+        this.bookID=bookID;
+        this.price=price;
+        this.status=status;
+        this.edition=edition;
+        this.dateOfPurchase=dateOfPurchase;
     }
 
-    public String get_title(){
-        return this.name;
+
+    public long getBookID() {
+        return bookID;
     }
-    public String get_author(){
-        return this.author;
+
+    public double getPrice() {
+        return price;
     }
 
     public boolean isStatus() {
         return status;
     }
 
-    public void change_owner(String newOwner){
-        //Sahibini  değiştireceğim
+    public String getEdition() {
+        return edition;
     }
 
-    public void display(){
-        System.out.println("Book Details.");
+    public String getDateOfPurchase() {
+        return dateOfPurchase;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void change_owner(String newOwner){
+        this.owner=newOwner;
+        System.out.println("Sahip değiştirildi.");
+    }
+
+    @Override
+    public void display() {
+        showDetails();
         System.out.println("Book Id: "+ bookID);
-        System.out.println("Name:"+ name);
-        System.out.println("Author:" +author);
         System.out.println("Price"+ price);
         System.out.println("Status:"+ (status?"Available":"Not available"));
         System.out.println("Editoin: "+ edition);
@@ -68,12 +80,11 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "bookID=" + bookID +
-                ", author='" + author + '\'' +
-                ", name='" + name + '\'' +
                 ", price=" + price +
                 ", status=" + status +
                 ", edition='" + edition + '\'' +
                 ", dateOfPurchase='" + dateOfPurchase + '\'' +
+                ", owner='" + owner + '\'' +
                 '}';
     }
 }
